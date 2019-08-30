@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TSE Guatemala - Resultados Preliminares Segunda Elección Presidencial 2019</title>
+
+  <!-- Bootstrap CSS File  -->
+  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-C++cugH8+Uf86JbNOnQoBweHHAe/wVKN/mb0lTybu/NZ9sEYbd+BbbYtNpWYAsNP" crossorigin="anonymous">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <img src="./images/TSE.png">
+    <a class="navbar-brand" href="#">TSE GUATEMALA, C.A. <br>
+      Resultados Preliminares Segunda Elección Presidencial 2019 </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <form class="form-inline my-2 my-lg-0">
+        </form>
+    </div>
+  </nav>
+
+  <div class="row mt-4">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label>Seleccione un Tipo de Elección: </label>
+        <select id="TIPOELECCION" class="custom-select">
+          <option value="1" selected="">Presidente y Vicepresidente</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label>Seleccione un Departamento: </label>
+        <select id="DEP" class="custom-select">
+          <option selected="" value="0">Nivel Nacional</option>
+          <option value="1">GUATEMALA</option>
+          <option value="2">SACATEPEQUEZ</option>
+          <option value="3">CHIMALTENANGO</option>
+          <option value="4">EL PROGRESO</option>
+          <option value="5">ESCUINTLA</option>
+          <option value="6">SANTA ROSA</option>
+          <option value="7">SOLOLA</option>
+          <option value="8">TOTONICAPAN</option>
+          <option value="9">QUETZALTENANGO</option>
+          <option value="10">SUCHITEPEQUEZ</option>
+          <option value="11">RETALHULEU</option>
+          <option value="12">SAN MARCOS</option>
+          <option value="13">HUEHUETENANGO</option>
+          <option value="14">QUICHE</option>
+          <option value="15">BAJA VERAPAZ</option>
+          <option value="16">ALTA VERAPAZ</option>
+          <option value="17">PETEN</option>
+          <option value="18">IZABAL</option>
+          <option value="19">ZACAPA</option>
+          <option value="20">CHIQUIMULA</option>
+          <option value="21">JALAPA</option>
+          <option value="22">JUTIAPA</option>
+          <option value="23">GUATEMALTECOS EN ESTADOS UNIDOS</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label>Seleccione un Municipio: </label>
+        <select id="MUN" class="custom-select">
+          <option selected="" value="0">Nivel Nacional</option>
+          <option value="0">NIVEL DEPARTAMENTAL</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="col-sm-2">
+      <label></label>
+      <button class="btn btn-info btn-block text-center" onclick="Consultar();">
+        Consultar Resultados
+      </button>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-8">
+            <h3>DETALLE DE VOTOS<span class="label label-primary"></span></h3>
+            <table class="table-info table-bordered table-sm">
+              <tr class="success">
+                <th>ORGRANIZACION POLITICA</th>
+                <th>VOTOS</th>
+                <th>%</th>
+              </tr>
+              <tbody id="myTable2">
+                <!-- Adicion de un tr que contendra los 
+                                    resgristros de la base de datos -->
+              </tbody>
+            </table>
+            <table class="table-info table-bordered table-sm mt-4">
+                <tr class="success">
+                  <th></th>
+                  <th>VOTOS</th>
+                  <th>%</th>
+                </tr>
+                <tbody id="myTable">
+                  <!-- Adicion de un tr que contendra los 
+                          resgristros de la base de datos -->
+                </tbody>
+              </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+        <h3 class="text-center">Votos Válidos por Organización Política</h3>
+        <canvas id="myChart" width="400" height="300"></canvas>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Jquery JS file -->
+  <script type="text/javascript" src="JS/jquery-3.2.1.min.js"></script>
+
+  <!-- Bootstrap JS file -->
+  <script type="text/javascript" src="Bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Adicionar javascript Personalizado -->
+  <script type="text/javascript" src="./JS/TSE.js"></script>
+
+
+</body>
+
+</html>
