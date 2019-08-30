@@ -26,11 +26,11 @@ function Consultar() {
             label: 'VOTOS',
             data: [UNE, VAMOS],
             backgroundColor: [
-              'BLUE',
-              'GREEN'
+              'SKYBLUE',
+              'LIGHTGREEN'
             ],
             borderColor: [
-              'BLUE',
+              'DARKBLUE',
               'GREEN'
             ],
             borderWidth: 1
@@ -85,6 +85,83 @@ function Consultar() {
   );
 }
 
+function Mesas() {
+
+  var _TIPOELECCION = $("#TIPOELECCION").val();
+  var _DEP = $("#DEP").val();
+  var _MUN = $("#MUN").val();
+
+  $.post("https://ws2v.tse.org.gt/api/tse/resultados", {
+    PROCESO: "201902",
+    TIPOELECCION: _TIPOELECCION,
+    DEP: _DEP,
+    MUN: _MUN
+  },
+    function (data, status) {
+
+      var TOTALMESAS = data.data["0"].CNTMESAS;
+      var MESASPRO = data.data["0"].MESASPRO;
+      var MESASFALT = data.data["0"].MESASFALT;
+      var CNTVOTANTES = data.data["0"].CNTVOTANTES;
+      var ABSTENCIONISMO = data.data["0"].ABSTENCIONISMO;
+
+      var ctx = document.getElementById('myChart2');
+
+      var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['MESAS PROCESADAS', 'MESAS FALTANTES'],
+          datasets: [{
+            label: 'VOTOS',
+            data: [MESASPRO,MESASFALT],
+            backgroundColor: [
+              'YELLOW',
+              'DARKRED'
+            ],
+            borderColor: [
+              'YELLOW',
+              'DARKRED'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
+
+      var tr = `<tr>
+<td class="left aligned">TOTAL MESAS:</td>
+<td class="right aligned">`+ TOTALMESAS + `</td></tr>
+<tr><td class="left aligned">MESAS PROCESADAS:</td>
+<td class="right aligned">`+ MESASPRO + `</td></tr>
+<tr><td class="left aligned">MESAS NO PROCESADAS:</td>
+<td class="right aligned">`+ MESASFALT+ `</td>
+</tr>`;
+
+      var tr2 = `<tr>
+<td class="left aligned">VOTANTES INSCRITOS:</td>
+<td class="right aligned">`+ CNTVOTANTES + `</td></tr>
+<tr><td class="left aligned">ABSTENCIONISMO:</td>
+<td class="right aligned">`+ABSTENCIONISMO+ `</td>
+</tr>`;
+      $("#myTable3").empty();
+      $("#myTable4").empty();
+      $("#myTable3").append(tr);
+      $("#myTable4").append(tr2);
+    }
+
+  );
+}
+
+
 $(document).ready(function () {
   Consultar();
+  Mesas();
 });

@@ -15,7 +15,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <img src="./images/TSE.png">
+    <img src="./images/TSE.png">
     <a class="navbar-brand" href="#">TSE GUATEMALA, C.A. <br>
       Resultados Preliminares Segunda Elección Presidencial 2019 </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -78,19 +78,19 @@
     </div>
     <div class="col-sm-2">
       <label></label>
-      <button class="btn btn-info btn-block text-center" onclick="Consultar();">
+      <button class="btn btn-info btn-block text-center" onclick="Consultar(); Mesas();">
         Consultar Resultados
       </button>
     </div>
   </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <div class="row">
-        <div class="col-1"></div>
-        <div class="col-8">
-            <h3>DETALLE DE VOTOS<span class="label label-primary"></span></h3>
+  <div class="container shadow-lg ui fluid raised card">
+    <div class="row mt-4">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-8 shadow-sm ui fluid raised card">
+            <h3 class="text-center">DETALLE DE VOTOS<span class="label label-primary"></span></h3>
             <table class="table-info table-bordered table-sm">
               <tr class="success">
                 <th>ORGRANIZACION POLITICA</th>
@@ -102,28 +102,72 @@
                                     resgristros de la base de datos -->
               </tbody>
             </table>
-            <table class="table-info table-bordered table-sm mt-4">
-                <tr class="success">
-                  <th></th>
-                  <th>VOTOS</th>
-                  <th>%</th>
-                </tr>
-                <tbody id="myTable">
-                  <!-- Adicion de un tr que contendra los 
+            <table class="table-info table-bordered table-sm rounded-2 mt-4">
+              <tr class="success">
+                <th></th>
+                <th>VOTOS</th>
+                <th>%</th>
+              </tr>
+              <tbody id="myTable">
+                <!-- Adicion de un tr que contendra los 
                           resgristros de la base de datos -->
-                </tbody>
-              </table>
+              </tbody>
+            </table>
+            <label class="mt-4"></label>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-6">
-        <h3 class="text-center">Votos Válidos por Organización Política</h3>
+      <div class="col-5 shadow-sm ui fluid raised card">
+        <h3 class="text-center">VOTOS VÁLIDOS POR ORGANIZACIÓN POLÍTICA</h3>
         <canvas id="myChart" width="400" height="300"></canvas>
+      </div>
+      <div class="col-1"></div>
     </div>
+    <label class="mt-4"></label>
   </div>
-</div>
 
+  <div class="container shadow-lg mt-4 ui fluid raised card">
+    <div class="row mt-4">
+      <div class="col-12">
+          <h3 class="text-center">MESAS PROCESADAS</h3>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-8 shadow-sm ui fluid raised card">
+            <table class="table-info table-bordered table-sm mt-4">
+              <tr class="success">
+              </tr>
+              <tbody id="myTable3">
+              </tbody>
+            </table>
+            <table class="table-info table-bordered table-sm mt-4">
+              <tr class="success">
+              </tr>
+              <tbody id="myTable4">
+              </tbody>
+            </table>
+            <label class="mt-4"></label>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 shadow-sm ui fluid raised card">
+        <canvas id="myChart2" width="400" height="300"></canvas>
+        <label class="mt-4"></label>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <label class="mt-4"></label>
+  </div>
 
+  <footer id="footer" class="mt-4">
+    <div class="row">
+      <div class="col-12">
+        <p>Made by <a href="">Josué Isael Bonilla Matías</a>.</p>
+      </div>
+    </div>
+
+  </footer>
 
   <!-- Jquery JS file -->
   <script type="text/javascript" src="JS/jquery-3.2.1.min.js"></script>
