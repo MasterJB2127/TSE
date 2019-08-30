@@ -119,8 +119,8 @@ function Mesas() {
               'DARKRED'
             ],
             borderColor: [
-              'YELLOW',
-              'DARKRED'
+              'none',
+              'none'
             ],
             borderWidth: 1
           }]
