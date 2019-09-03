@@ -46,35 +46,42 @@ function Consultar() {
           }
         }
       });
-
+var PVOTOSVALIDOS = data.data["0"].PVOTOSVALIDOS.toFixed(2);
+var PNULOS = data.data["0"].PNULOS.toFixed(2);
+var PBLANCOS = data.data["0"].PBLANCOS.toFixed(2);
+var PTOTALVOTOS = data.data["0"].PTOTALVOTOS.toFixed(2);
+var PINVALIDOS = data.data["0"].PINVALIDOS.toFixed(2);
+var PCNTIMPUGNA = data.data["0"].PCNTIMPUGNA.toFixed(2);
+var P1 = data.data["0"].P1.toFixed(2);
+var P2 = data.data["0"].P2.toFixed(2);
       var tr = `<tr>
 <td class="left aligned">TOTAL VOTOS VALIDOS</td>
 <td class="right aligned">`+ data.data["0"].VOTOSVALIDOS + `</td>
-<td>`+ data.data["0"].PVOTOSVALIDOS + `</td></tr>
+<td>`+ PVOTOSVALIDOS + `%</td></tr>
 <tr><td class="left aligned">VOTOS NULOS</td>
 <td class="right aligned">`+ data.data["0"].NULOS + `</td>
-<td>`+ data.data["0"].PNULOS + `</td></tr>
+<td>`+ PNULOS + `%</td></tr>
 <tr><td class="left aligned">VOTOS EN BLANCO</td>
 <td class="right aligned">`+ data.data["0"].BLANCOS + `</td>
-<td>`+ data.data["0"].PBLANCOS + `</td></tr>
+<td>`+ PBLANCOS + `%</td></tr>
 <tr><td class="left aligned">VOTOS VALIDAMENTE EMITIDOS</td>
 <td class="right aligned">`+ data.data["0"].TOTALVOTOS + `</td>
-<td>`+ data.data["0"].PTOTALVOTOS + `</td></tr>
+<td>`+ PTOTALVOTOS + `%</td></tr>
 <tr><td class="left aligned">VOTOS INVALIDOS</td>
 <td class="right aligned">`+ data.data["0"].INVALIDOS + `</td>
-<td>`+ data.data["0"].PINVALIDOS + `</td></tr>
+<td>`+ PINVALIDOS + `%</td></tr>
 <tr><td class="left aligned">IMPUGNACIONES</td>
 <td class="right aligned">`+ data.data["0"].CNTIMPUGNA + `</td>
-<td>`+ data.data["0"].PCNTIMPUGNA + `</td>
+<td>`+ PCNTIMPUGNA + `%</td>
 </tr>`;
 
       var tr2 = `<tr>
 <td class="left aligned">VAMOS</td>
 <td class="right aligned">`+ data.data["0"].V1 + `</td>
-<td>`+ data.data["0"].P1 + `</td></tr>
+<td>`+ P1 + `%</td></tr>
 <tr><td class="left aligned">UNE</td>
 <td class="right aligned">`+ data.data["0"].V2 + `</td>
-<td>`+ data.data["0"].P2 + `</td>
+<td>`+ P2 + `%</td>
 </tr>`;
       $("#myTable").empty();
       $("#myTable2").empty();
