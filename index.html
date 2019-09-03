@@ -14,160 +14,170 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <img src="./images/TSE.png">
-    <a class="navbar-brand" href="#">TSE GUATEMALA, C.A. <br>
-      Resultados Preliminares Segunda Elección Presidencial 2019 </a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <form class="form-inline my-2 my-lg-0">
-        </form>
-    </div>
-  </nav>
 
-  <div class="row mt-4">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-2">
-      <div class="form-group">
-        <label>Seleccione un Tipo de Elección: </label>
-        <select id="TIPOELECCION" class="custom-select">
-          <option value="1" selected="">Presidente y Vicepresidente</option>
-        </select>
+    <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-dark bg-primary">
+      <img src="./images/TSE.png">
+      <a class="navbar-brand" href="#"> </a>
+        <h5 style="color: white">TSE GUATEMALA, C.A. <br>
+          Resultados Preliminares Segunda Elección Presidencial 2019</h5>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <form class="form-inline my-2 my-lg-0">
+          </form>
       </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group">
-        <label>Seleccione un Departamento: </label>
-        <select id="DEP" class="custom-select">
-          <option selected="" value="0">Nivel Nacional</option>
-          <option value="1">GUATEMALA</option>
-          <option value="2">SACATEPEQUEZ</option>
-          <option value="3">CHIMALTENANGO</option>
-          <option value="4">EL PROGRESO</option>
-          <option value="5">ESCUINTLA</option>
-          <option value="6">SANTA ROSA</option>
-          <option value="7">SOLOLA</option>
-          <option value="8">TOTONICAPAN</option>
-          <option value="9">QUETZALTENANGO</option>
-          <option value="10">SUCHITEPEQUEZ</option>
-          <option value="11">RETALHULEU</option>
-          <option value="12">SAN MARCOS</option>
-          <option value="13">HUEHUETENANGO</option>
-          <option value="14">QUICHE</option>
-          <option value="15">BAJA VERAPAZ</option>
-          <option value="16">ALTA VERAPAZ</option>
-          <option value="17">PETEN</option>
-          <option value="18">IZABAL</option>
-          <option value="19">ZACAPA</option>
-          <option value="20">CHIQUIMULA</option>
-          <option value="21">JALAPA</option>
-          <option value="22">JUTIAPA</option>
-          <option value="23">GUATEMALTECOS EN ESTADOS UNIDOS</option>
-        </select>
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group">
-        <label>Seleccione un Municipio: </label>
-        <select id="MUN" class="custom-select">
-          <option selected="" value="0">Nivel Nacional</option>
-          <option value="0">NIVEL DEPARTAMENTAL</option>
-        </select>
-      </div>
+    </nav>
 
-    </div>
-    <div class="col-sm-2">
-      <label></label>
-      <button class="btn btn-info btn-block text-center" onclick="Consultar(); Mesas();">
-        Consultar Resultados
-      </button>
-    </div>
-  </div>
+  <div class="container col-12">
 
-  <div class="container shadow-lg ui fluid raised card">
-    <div class="row mt-4">
-      <div class="col-6">
-        <div class="row">
-          <div class="col-1"></div>
-          <div class="col-8 shadow-sm ui fluid raised card">
-            <h3 class="text-center">DETALLE DE VOTOS<span class="label label-primary"></span></h3>
-            <table class="table-info table-bordered table-sm">
-              <tr class="success">
-                <th>ORGRANIZACION POLITICA</th>
-                <th>VOTOS</th>
-                <th>%</th>
-              </tr>
-              <tbody id="myTable2">
-                <!-- Adicion de un tr que contendra los 
-                                    resgristros de la base de datos -->
-              </tbody>
-            </table>
-            <table class="table-info table-bordered table-sm rounded-2 mt-4">
-              <tr class="success">
-                <th></th>
-                <th>VOTOS</th>
-                <th>%</th>
-              </tr>
-              <tbody id="myTable">
-                <!-- Adicion de un tr que contendra los 
-                          resgristros de la base de datos -->
-              </tbody>
-            </table>
-            <label class="mt-4"></label>
+    <div class="container">
+      <div class="row justify-content-center mt-4">
+        <div class=""></div>
+        <div class="col-sm-10 col-md-3 col-lg-2 col-xl-3">
+          <div class="form-group">
+            <label>Seleccione un Tipo de Elección: </label>
+            <select id="TIPOELECCION" class="custom-select">
+              <option value="1" selected="">Presidente y Vicepresidente</option>
+            </select>
           </div>
         </div>
-      </div>
-      <div class="col-5 shadow-sm ui fluid raised card">
-        <h3 class="text-center">VOTOS VÁLIDOS POR ORGANIZACIÓN POLÍTICA</h3>
-        <canvas id="myChart" width="400" height="300"></canvas>
-      </div>
-      <div class="col-1"></div>
-    </div>
-    <label class="mt-4"></label>
-  </div>
-
-  <div class="container shadow-lg mt-4 ui fluid raised card">
-    <div class="row mt-4">
-      <div class="col-12">
-          <h3 class="text-center">MESAS PROCESADAS</h3>
-      </div>
-      <div class="col-6">
-        <div class="row">
-          <div class="col-1"></div>
-          <div class="col-8 shadow-sm ui fluid raised card">
-            <table class="table-info table-bordered table-sm mt-4">
-              <tr class="success">
-              </tr>
-              <tbody id="myTable3">
-              </tbody>
-            </table>
-            <table class="table-info table-bordered table-sm mt-4">
-              <tr class="success">
-              </tr>
-              <tbody id="myTable4">
-              </tbody>
-            </table>
-            <label class="mt-4"></label>
+        <div class="col-sm-10 col-md-3 col-lg-2 col-xl-3">
+          <div class="form-group">
+            <label>Seleccione un Departamento: </label>
+            <select id="DEP" class="custom-select">
+              <option selected="" value="0">Nivel Nacional</option>
+              <option value="1">GUATEMALA</option>
+              <option value="2">SACATEPEQUEZ</option>
+              <option value="3">CHIMALTENANGO</option>
+              <option value="4">EL PROGRESO</option>
+              <option value="5">ESCUINTLA</option>
+              <option value="6">SANTA ROSA</option>
+              <option value="7">SOLOLA</option>
+              <option value="8">TOTONICAPAN</option>
+              <option value="9">QUETZALTENANGO</option>
+              <option value="10">SUCHITEPEQUEZ</option>
+              <option value="11">RETALHULEU</option>
+              <option value="12">SAN MARCOS</option>
+              <option value="13">HUEHUETENANGO</option>
+              <option value="14">QUICHE</option>
+              <option value="15">BAJA VERAPAZ</option>
+              <option value="16">ALTA VERAPAZ</option>
+              <option value="17">PETEN</option>
+              <option value="18">IZABAL</option>
+              <option value="19">ZACAPA</option>
+              <option value="20">CHIQUIMULA</option>
+              <option value="21">JALAPA</option>
+              <option value="22">JUTIAPA</option>
+              <option value="23">GUATEMALTECOS EN ESTADOS UNIDOS</option>
+            </select>
           </div>
         </div>
+        <div class="col-sm-10 col-md-3 col-lg-2 col-xl-3">
+          <div class="form-group">
+            <label>Seleccione un Municipio: </label>
+            <select id="MUN" class="custom-select">
+              <option selected="" value="0">Nivel Nacional</option>
+              <option value="0">NIVEL DEPARTAMENTAL</option>
+            </select>
+          </div>
+  
+        </div>
+        <div class="col-sm-10 col-md-3 col-lg-2 col-xl-3">
+          <label></label>
+          <button class="btn btn-info btn-block text-center" onclick="Consultar(); Mesas();">
+            Consultar Resultados
+          </button>
+        </div>
       </div>
-      <div class="col-5 shadow-sm ui fluid raised card">
-        <canvas id="myChart2" width="400" height="300"></canvas>
-        <label class="mt-4"></label>
-      </div>
-      <div class="col-1"></div>
     </div>
-    <label class="mt-4"></label>
+
+    <div class="container shadow-lg ui fluid raised card mt-4">
+      <div class="row justify-content-center mt-4">
+        <div class="col-ms-10 col-md-12 col-lg-6 col-xl-5">
+          <div class="row justify-content-center">
+            <div class="col-sm-8 col-md-7 col-lg-9 table-responsive shadow-sm ui fluid raised card">
+              <h3 class="text-center" style="color: darkblue">DETALLE DE VOTOS<span class="label label-primary"></span>
+              </h3>
+              <table class="table table-bordered table-md">
+                <thead class="thead-light">
+                  <tr>
+                    <th class="text-center">ORGRANIZACION POLITICA</th>
+                    <th class="text-center">VOTOS</th>
+                    <th class="text-center">%</th>
+                  </tr>
+                </thead>
+                <tbody id="myTable2">
+                </tbody>
+              </table>
+              <table class="table table-bordered table-sm rounded-2 mt-4">
+                <thead class="thead-light">
+                  <tr>
+                    <th class="text-center"></th>
+                    <th class="text-center">VOTOS</th>
+                    <th class="text-center">%</th>
+                  </tr>
+                </thead>
+                <tbody id="myTable">
+                </tbody>
+              </table>
+              <label class="mt-4"></label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-10 col-lg-4 col-xl-5 shadow-sm ui fluid raised card">
+          <h3 class="text-center" style="color: darkblue">VOTOS VÁLIDOS POR ORGANIZACIÓN POLÍTICA</h3>
+          <canvas id="myChart" width="400" height="300"></canvas>
+        </div>
+        <div class="col-1"></div>
+      </div>
+      <label class="mt-4"></label>
+    </div>
+
+    <div class="container shadow-lg mt-4 ui fluid raised card">
+      <div class="row justify-content-center mt-4">
+
+        <div class="row justify-content-center col-12">
+            <h3 class="text-center" style="color: darkblue">MESAS PROCESADAS</h3>
+          </div>
+        <div class="col-ms-10 col-md-10 col-lg-5 col-xl-5">
+        <div class="">
+          <div class="row justify-content-center">
+            <div class="col-sm-10 col-md-7 col-lg-9 table-responsive shadow-sm ui fluid raised card">
+              <table class="table-default table-striped table-bordered table-sm mt-4">
+                <tr class="success">
+                </tr>
+                <tbody id="myTable3">
+                </tbody>
+              </table>
+              <table class="table-default table-striped table-bordered table-sm mt-4">
+                <tr class="success">
+                </tr>
+                <tbody id="myTable4">
+                </tbody>
+              </table>
+              <label class="mt-4"></label>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col-sm-12 col-md-10 col-lg-5 col-xl-5 shadow-sm shadow-sm ui fluid raised card">
+          <canvas id="myChart2" width="400" height="300"></canvas>
+          <label class="mt-4"></label>
+        </div>
+        <div class="col-1"></div>
+      </div>
+      <label class="mt-4"></label>
+    </div>
+
+    <footer id="footer" class="mt-4">
+      <div class="row">
+        <div class="col-12">
+          <p>Made by <a href="">Josué Isael Bonilla Matías</a>.</p>
+        </div>
+      </div>
+
+    </footer>
   </div>
 
-  <footer id="footer" class="mt-4">
-    <div class="row">
-      <div class="col-12">
-        <p>Made by <a href="">Josué Isael Bonilla Matías</a>.</p>
-      </div>
-    </div>
-
-  </footer>
 
   <!-- Jquery JS file -->
   <script type="text/javascript" src="JS/jquery-3.2.1.min.js"></script>
