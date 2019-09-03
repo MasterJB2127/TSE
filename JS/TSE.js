@@ -13,6 +13,10 @@ function Consultar() {
   },
     function (data, status) {
 
+      var myimage = new Image();
+      myimage.src = './images/UNE.png';
+      
+
       var UNE = data.data["0"].V1;
       var VAMOS = data.data["0"].V2;
 
@@ -24,7 +28,8 @@ function Consultar() {
           labels: ['VAMOS', 'UNE'],
           datasets: [{
             label: 'VOTOS',
-            data: [UNE, VAMOS],
+            pointStyle: ['rect', 'triangle', 'circle'],
+            data: [UNE , VAMOS],
             backgroundColor: [
               'SKYBLUE',
               'LIGHTGREEN'
